@@ -5,7 +5,7 @@ import 'package:new_idea/provider/provider_widget.dart';
 import 'package:new_idea/routers/application.dart';
 import 'package:new_idea/routers/navigator_util.dart';
 import 'package:new_idea/routers/routes.dart';
-import 'package:new_idea/utils/net_init.dart';
+import 'package:new_idea/config/net_init.dart';
 import 'package:new_idea/view_model/test_model.dart';
 import 'package:provider/provider.dart';
 
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           ProviderWidget<TestModel>(
-              model: TestModel(title: "3"),
+              viewModel: TestModel(title: "3"),
               builder: (context, TestModel, child) {
                 print("TestMode1重新build");
                 return Container(
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )));
               }),
           ProviderWidget<TestMode2>(
-              model: TestMode2(title: "4"),
+              viewModel: TestMode2(title: "4"),
               builder: (context, TestModel, child) {
                 print("TestMode2重新build");
                 return Container(
@@ -159,6 +159,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () =>
                         {NavigatorUtil.jumpLeft(context, '/normalPage')},
                     child: Text('routerLeft'),
+                  ),
+                  MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/refreshPage')},
+                    child: Text('providerrefresh'),
                   ),
                 ],
               ),

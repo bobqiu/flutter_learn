@@ -1,9 +1,10 @@
+
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart';
 
 import '../page/index_page.dart';
 import '../page/login.dart';
 import '../page/normal_page.dart';
+import '../page/refresh_page.dart';
 import '../page/routing_reference.dart';
 
 /**
@@ -17,6 +18,9 @@ Handler indexPageHanderl = Handler(
   },
 );
 
+Handler refreshPageHanderl=Handler(handlerFunc: (context,params){
+  return refreshPage();
+});
 // 正常路由跳转
 Handler normalPageHanderl = Handler(
     handlerFunc: (context, params){

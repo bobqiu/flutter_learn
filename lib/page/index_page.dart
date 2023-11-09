@@ -15,7 +15,7 @@ class IndexPage extends StatelessWidget {
           onModelReady: (model) {
             loadData(model);
           },
-          model: HomeViewModel(title: "3"),
+          viewModel: HomeViewModel(title: "3"),
           builder: (context, model, child) {
             print("HomeModel重新build");
             return Padding(
@@ -32,11 +32,14 @@ Widget _buildContent(HomeViewModel model) {
     separatorBuilder: (BuildContext context, int index) => const Divider(),
     itemBuilder: (BuildContext context, int index) {
       return ListTile(
-        title: Text(model.bizDataValue![index].id.toString()),
+        title: Text(model.bizDataValue![index].toString()),
       );
     },
   );
 }
+
+
+
 
 loadData(HomeViewModel model) {
   print("model:$model");

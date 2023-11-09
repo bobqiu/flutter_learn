@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 /// 另外发现进一步封装,都是使用了Consumer来进行包裹, 那么这总控制会更加颗粒化的去build
 class ProviderWidget<T extends ChangeNotifier> extends StatefulWidget {
   final ValueWidgetBuilder<T> builder;
-  final T model;
+  final T viewModel;
   final Widget? child;
   final Function(T model)? onModelReady;
   final bool autoDispose;
@@ -15,7 +15,7 @@ class ProviderWidget<T extends ChangeNotifier> extends StatefulWidget {
   ProviderWidget({
     Key? key,
     required this.builder,
-    required this.model,
+    required this.viewModel,
     this.child,
     this.onModelReady,
     this.autoDispose = true,
@@ -26,25 +26,25 @@ class ProviderWidget<T extends ChangeNotifier> extends StatefulWidget {
 
 class _ProviderWidgetState<T extends ChangeNotifier>
     extends State<ProviderWidget<T>> {
-  late T model;
+  late T viewModel;
 
   @override
   void initState() {
-    model = widget.model;
-    widget.onModelReady?.call(model);
+    viewModel = widget.viewModel;
+    widget.onModelReady?.call(viewModel);
     super.initState();
   }
 
   @override
   void dispose() {
-    if (widget.autoDispose) model.dispose();
+    if (widget.autoDispose) viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<T>.value(
-      value: model,
+      value: viewModel,
       child: Consumer<T>(
         builder: widget.builder,
         child: widget.child,

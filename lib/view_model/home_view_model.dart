@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_idea/view_model/base_refresh_view_model.dart';
 import 'package:new_idea/view_model/base_view_model.dart';
 
 import '../api/biz_repository.dart';
@@ -6,7 +7,7 @@ import '../component/biz_entity.dart';
 import '../net/base_repository.dart';
 import '../net/result.dart';
 
-class HomeViewModel  extends BaseViewModel<BizRepository> {
+class HomeViewModel  extends BaseRefreshViewModel<BizRepository> {
   String title = "";
 
   String get value => title;
