@@ -1,0 +1,19 @@
+import 'dart:async';
+import 'package:connectivity_plus/connectivity_plus.dart';
+
+
+ Future isConnected() async {
+  var connectivityResult = await (Connectivity().checkConnectivity());
+  print(connectivityResult != ConnectivityResult.none);
+  return connectivityResult != ConnectivityResult.none;
+}
+
+Future<bool> checkNetMobile() async {
+  var connectivityResult = await (Connectivity().checkConnectivity());
+   return connectivityResult == ConnectivityResult.mobile;
+}
+
+Future<bool> checkNetWifi() async {
+ var connectivityResult = await (Connectivity().checkConnectivity());
+ return connectivityResult == ConnectivityResult.wifi;
+}
