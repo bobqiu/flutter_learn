@@ -135,6 +135,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPressed: () => TestModel.removeTitle(),
                           child: Text('remove'),
                         ),
+                        MaterialButton(
+                          onPressed: () =>
+                          {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                          child: Text('provider+原refresh集成'),
+                        ),
                       ],
                     ),
                   ),
@@ -160,15 +165,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         {NavigatorUtil.jumpLeft(context, '/normalPage')},
                     child: Text('routerLeft'),
                   ),
+                  /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
                   MaterialButton(
                     onPressed: () =>
                     {NavigatorUtil.jumpLeft(context, '/refreshPage')},
-                    child: Text('providerrefresh'),
+                    child: Text('provider+封装refresh集成'),
                   ),
                 ],
               ),
             ),
           ))),
+
           Container(
               color: Colors.deepOrangeAccent,
               child: Center(
