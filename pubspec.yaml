@@ -20,7 +20,6 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
-
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -62,6 +61,8 @@ dev_dependencies:
   easy_refresh: ^3.3.2+1
   date_format: ^2.0.7
   carousel_slider: ^4.2.1
+
+  fluttertoast: ^8.2.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

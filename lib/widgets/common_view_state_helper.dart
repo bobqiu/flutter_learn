@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_idea/view_model/base_view_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../provider/view_state.dart';
 import '../res/app_color.dart';
 
@@ -24,11 +25,11 @@ class CommonViewStateHelper<T extends BaseViewModel> extends StatelessWidget {
     } else if (model!.isEmpty()) {
       return new CommonViewStateEmptyWidget(onPressed: onEmptyPressed);
     } else if (model!.isError()) {
-     // Fluttertoast.showToast(msg: '请求失败');
+      Fluttertoast.showToast(msg: '请求失败');
       return new CommonViewStateErrorWidget(
           error: model?.viewStateError, onPressed: onErrorPressed);
     } else if (model!.isNoNetWork()) {
-    //  Fluttertoast.showToast(msg: '当前没有网络');
+      Fluttertoast.showToast(msg: '当前没有网络');
       return new CommonViewStateNoNetWorkWidget(onPressed: onNoNetworkPressed);
     } else {
       throw new Exception('状态异常，请核查状态');

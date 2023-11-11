@@ -72,9 +72,9 @@ class BizRepository extends BaseRepository {
   }
 
   Future<BizEntity> requestGetGenericEntity() async {
-    late BizEntity bizEntity;
+    late BizEntity bizEntity=BizEntity();
     Result<BizEntity> appResponse =
-    await get<BizEntity, BizEntity>("biz/list", decodeType: BizEntity());
+    await get<BizEntity, BizEntity>("biz/list?tm="+DateTime.now().microsecondsSinceEpoch.toString(), decodeType: BizEntity());
     print("appResponse2,$appResponse");
     appResponse?.when(success: (model) {
       print("带泛型model2,$model");
@@ -86,6 +86,8 @@ class BizRepository extends BaseRepository {
       print("带泛型2成功返回$size条");
     }, failure: (String msg, int code) {
       print("失败了：msg=$msg/code=$code");
+      bizEntity.code=code;
+      bizEntity.msg=msg;
     });
     print("bizentity,$bizEntity");
     return bizEntity;

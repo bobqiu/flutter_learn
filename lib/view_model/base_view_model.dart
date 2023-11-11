@@ -93,7 +93,7 @@ abstract class BaseViewModel<T extends BaseRepository>  with ChangeNotifier{
   /// 数据异常
   void setError(e, {String? message}) {
     debugPrint("build_${this.toString()}_error");
-    if (e is DioError) {
+    if (e is DioException) {
       e = e.error;
       message = e.message;
     }

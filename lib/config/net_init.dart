@@ -9,7 +9,7 @@ NetInit() {
   NetOptions.instance
       // header
       .addHeaders({"aaa": '111'})
-      .setBaseUrl("http://192.168.0.100:18080/")
+      .setBaseUrl("http://192.168.31.101:18080/")
       // 代理/https
       // .setHttpClientAdapter(IOHttpClientAdapter()
       //   ..onHttpClientCreate = (client) {

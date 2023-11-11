@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_idea/view_model/home_view_model.dart';
+import 'package:new_idea/view_model/refresh_view_model.dart';
 import 'package:new_idea/widgets/common_refresh_widget.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import '../provider/provider_widget.dart';
+import '../widgets/common_view_state_helper.dart';
 
 class RefreshPage extends StatefulWidget {
   const RefreshPage({super.key});
@@ -12,21 +13,14 @@ class RefreshPage extends StatefulWidget {
 }
 
 class _RefreshPageState extends State<RefreshPage> {
-  int _count = 10;
-  late EasyRefreshController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = EasyRefreshController(
-      controlFinishRefresh: true,
-      controlFinishLoad: true,
-    );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
   }
 
@@ -37,43 +31,31 @@ class _RefreshPageState extends State<RefreshPage> {
           title: Text("刷新列表proxy＋封装refresh"),
           centerTitle: true,
         ),
-        body: ProviderWidget<HomeViewModel>(
+        body: ProviderWidget<RefreshViewModel>(
           onModelReady: (model) {
             loadData(model);
           },
-          viewModel: HomeViewModel(),
+          viewModel: RefreshViewModel(),
           builder: (context, model, child) {
+            var modelstate=!model.isSuccess();
+            print("!model.isSuccess(),$modelstate");
+            if (!model.isSuccess()) {
+              return CommonViewStateHelper(
+                model: model,
+                onEmptyPressed: () => loadData(model),
+                onErrorPressed: () => loadData(model),
+                onNoNetworkPressed: () => loadData(model),
+              );
+            }
             return  CommonRefreshWidget(
-                easyRefreshController: _controller,
-                onRefresh: () async {
-                  await Future.delayed(const Duration(seconds: 4));
-                  if (!mounted) {
-                    return;
-                  }
-                  setState(() {
-                    _count = 10;
-                  });
-                  _controller.finishRefresh();
-                  _controller.resetFooter();
-                },
-                onLoad: () async {
-                  await Future.delayed(const Duration(seconds: 4));
-                  if (!mounted) {
-                    return;
-                  }
-                  setState(() {
-                    _count += 5;
-                  });
-                  _controller.finishLoad(_count >= 20
-                      ? IndicatorResult.noMore
-                      : IndicatorResult.success);
-                },
+                easyRefreshController: model.easyRefreshController,
+                onRefresh: () {return model.refreshBizData();},
                 listView: ListView.separated(
-                  itemCount: model.bizDataValue!=null?model.bizDataValue!.length:0,
+                  itemCount: model.bizDataList!=null?model.bizDataList!.length:0,
                   separatorBuilder: (BuildContext context, int index) => const Divider(),
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      title: Text(model.bizDataValue![index].toString()),
+                      title: Text(model.bizDataList![index].toString()),
                     );
                   },
                 )
@@ -82,8 +64,8 @@ class _RefreshPageState extends State<RefreshPage> {
         ));
   }
 }
-loadData(HomeViewModel model) {
+loadData(RefreshViewModel model) {
   print("model:$model");
-  model.getList();
+  model.getBizDataList();
   print("");
 }

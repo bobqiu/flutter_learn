@@ -269,15 +269,15 @@ class BaseRepository{
                 httpDecode ?? NetOptions.instance.httpDecoder));
         return Result.success(decode);
       }
-    } on DioError catch (e) {
-      if (kDebugMode) print("$path => DioError${e.message}");
+    } on DioException catch (e) {
+      if (kDebugMode) print("$path => DioException ${e.message}");
       return Result.failure(
           msg: e.message ?? '', code: e.response?.statusCode ?? -1);
     } on NetException catch (e) {
-      if (kDebugMode) print("$path => NetException${e.toString()}");
+      if (kDebugMode) print("$path => NetException ${e.toString()}");
       return Result.failure(msg: e.message, code: e.code);
     } on TypeError catch (e) {
-      if (kDebugMode) print("$path => TypeError${e.toString()}");
+      if (kDebugMode) print("$path => TypeError ${e.toString()}");
       return Result.failure(msg: e.toString());
     }
   }

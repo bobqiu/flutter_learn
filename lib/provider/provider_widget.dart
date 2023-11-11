@@ -70,7 +70,7 @@ class ProviderWidget2<A extends ChangeNotifier, B extends ChangeNotifier>
     required this.model2,
     this.child,
     this.onModelReady,
-    this.autoDispose= true,
+    this.autoDispose = true,
   }) : super(key: key);
 
   _ProviderWidgetState2<A, B> createState() => _ProviderWidgetState2<A, B>();
@@ -91,7 +91,9 @@ class _ProviderWidgetState2<A extends ChangeNotifier, B extends ChangeNotifier>
 
   @override
   void dispose() {
-    if (widget != null&&widget.autoDispose!=null&& widget.autoDispose==true) {
+    if (widget != null &&
+        widget.autoDispose != null &&
+        widget.autoDispose == true) {
       model1.dispose();
       model2.dispose();
     }

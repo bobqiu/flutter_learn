@@ -34,6 +34,7 @@ class _CustomCommonRefreshWidgetState extends State<CommonRefreshWidget> {
   @override
   Widget build(BuildContext context) {
     return EasyRefresh(
+        controller: widget.easyRefreshController,
         header: ClassicHeader(
           dragText: 'Pull to refresh',
           armedText: 'Release ready,准备',
