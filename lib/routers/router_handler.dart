@@ -1,10 +1,11 @@
-
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../page/index_page.dart';
 import '../page/login.dart';
 import '../page/normal_page.dart';
+import '../page/order_list_page.dart';
+import '../page/order_page.dart';
 import '../page/refresh_page.dart';
 import '../page/routing_reference.dart';
 import '../page/test_provider_refresh_page.dart';
@@ -15,35 +16,40 @@ import '../page/test_provider_refresh_page.dart';
 
 // 首页
 Handler indexPageHanderl = Handler(
-  handlerFunc:  (context, params) {
+  handlerFunc: (context, params) {
     return IndexPage();
   },
 );
 //集成刷新
-Handler refreshPageHanderl=Handler(handlerFunc: (context,params){
+Handler refreshPageHanderl = Handler(handlerFunc: (context, params) {
   return RefreshPage();
 });
-Handler testProviderRefreshPageHanderl=Handler(handlerFunc: (context,params){
+Handler testProviderRefreshPageHanderl =
+    Handler(handlerFunc: (context, params) {
   return TestProviderRefreshPage();
 });
 // 正常路由跳转
-Handler normalPageHanderl = Handler(
-    handlerFunc: (context, params){
-      return NormalPage();
-    }
-);
+Handler normalPageHanderl = Handler(handlerFunc: (context, params) {
+  return NormalPage();
+});
 
 // 路由传参
-Handler routingReferenceHanderl = Handler(
-    handlerFunc:  (context, params){
-      String id = params['id']!.first;
-      return RoutingReference(id: id);
-    }
-);
+Handler routingReferenceHanderl = Handler(handlerFunc: (context, params) {
+  String id = params['id']!.first;
+  return RoutingReference(id: id);
+});
 
 // 登陆页面
-Handler loginHanderl = Handler(
-    handlerFunc:  (context, params) {
-      return Login();
-    }
-);
+Handler loginHanderl = Handler(handlerFunc: (context, params) {
+  return Login();
+});
+//订单基础页带上下拉
+Handler orderPageHanderl = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> parameters) {
+  return OrderPage();
+});
+//订单列表页带分页
+Handler orderListPageHanderl = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> parameters) {
+  return OrderListPage();
+});

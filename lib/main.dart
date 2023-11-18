@@ -179,9 +179,145 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ))),
-
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.yellowAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jump(context, '/orderPage')},
+                            child: Text('订单演示'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/orderListPage')},
+                            child: Text('订单分页'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/refreshPage')},
+                            child: Text('provider+封装refresh集成'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.blueAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jump(context, '/indexPage')},
+                            child: Text('routerRight'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/normalPage')},
+                            child: Text('routerLeft'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/refreshPage')},
+                            child: Text('provider+封装refresh集成'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.amberAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jump(context, '/indexPage')},
+                            child: Text('routerRight'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/normalPage')},
+                            child: Text('routerLeft'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/refreshPage')},
+                            child: Text('provider+封装refresh集成'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.greenAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jump(context, '/indexPage')},
+                            child: Text('routerRight'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/normalPage')},
+                            child: Text('routerLeft'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtil.jumpLeft(context, '/refreshPage')},
+                            child: Text('provider+封装refresh集成'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
           Container(
               color: Colors.deepOrangeAccent,
+              height: 40,
               child: Center(
                 child: Text('$src', style: style),
               )),

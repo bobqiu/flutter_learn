@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_idea/view_model/refresh_view_model.dart';
 import 'package:new_idea/widgets/common_refresh_widget.dart';
-import 'package:easy_refresh/easy_refresh.dart';
+
 import '../provider/provider_widget.dart';
 import '../widgets/common_view_state_helper.dart';
 
@@ -49,7 +49,7 @@ class _RefreshPageState extends State<RefreshPage> {
             }
             return  CommonRefreshWidget(
                 easyRefreshController: model.easyRefreshController,
-                onRefresh: () {return model.refreshBizData();},
+                onRefresh: () => model.refreshBizData(),
                 listView: ListView.separated(
                   itemCount: model.bizDataList!=null?model.bizDataList!.length:0,
                   separatorBuilder: (BuildContext context, int index) => const Divider(),

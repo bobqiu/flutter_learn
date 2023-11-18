@@ -1,7 +1,6 @@
+import 'package:new_idea/generated/json/base/json_convert_content.dart';
+import 'package:new_idea/component/biz_entity.dart';
 
-
-import '../../component/biz_entity.dart';
-import 'base/json_convert_content.dart';
 
 BizEntity $BizEntityFromJson(Map<String, dynamic> json) {
   final BizEntity bizEntity = BizEntity();

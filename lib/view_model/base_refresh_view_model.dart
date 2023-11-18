@@ -38,4 +38,8 @@ abstract class BaseRefreshViewModel<T extends BaseRepository>
     }
     return result;
   }
+  void dispose(){
+    _easyRefreshController.dispose();
+    super.dispose();
+  }
 }

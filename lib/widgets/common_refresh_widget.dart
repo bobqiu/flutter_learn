@@ -46,7 +46,9 @@ class _CustomCommonRefreshWidgetState extends State<CommonRefreshWidget> {
           messageText: 'Last updated at %T',
           safeArea: false,
         ),
-        footer: const ClassicFooter(),
+        footer: ClassicFooter(
+          infiniteOffset: null,
+        ),
         onRefresh: widget.onRefresh,
         onLoad: widget.onLoad,
         child: widget.listView);

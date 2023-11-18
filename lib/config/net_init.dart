@@ -8,8 +8,9 @@ import '../net/net_options.dart';
 NetInit() {
   NetOptions.instance
       // header
-      .addHeaders({"aaa": '111'})
-      .setBaseUrl("http://192.168.31.101:18080/")
+      .addHeaders({"Authorization": 'Bearer test1'})
+      //.setBaseUrl("http://192.168.43.192:48080/admin-api")
+      .setBaseUrl("http://192.168.71.40:48080/admin-api")
       // 代理/https
       // .setHttpClientAdapter(IOHttpClientAdapter()
       //   ..onHttpClientCreate = (client) {

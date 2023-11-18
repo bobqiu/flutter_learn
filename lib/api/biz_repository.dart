@@ -74,7 +74,7 @@ class BizRepository extends BaseRepository {
   Future<BizEntity> requestGetGenericEntity() async {
     late BizEntity bizEntity=BizEntity();
     Result<BizEntity> appResponse =
-    await get<BizEntity, BizEntity>("biz/list?tm="+DateTime.now().microsecondsSinceEpoch.toString(), decodeType: BizEntity());
+    await get<BizEntity, BizEntity>("/trade/biz/list?tm="+DateTime.now().microsecondsSinceEpoch.toString(), decodeType: BizEntity());
     print("appResponse2,$appResponse");
     appResponse?.when(success: (model) {
       print("带泛型model2,$model");
