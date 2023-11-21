@@ -1,6 +1,7 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:new_idea/net/auth_interceptor.dart';
 
 import '../net/default_net_decoder.dart';
 import '../net/net_options.dart';
@@ -8,7 +9,7 @@ import '../net/net_options.dart';
 NetInit() {
   NetOptions.instance
       // header
-      .addHeaders({"Authorization": 'Bearer test1'})
+      //.addHeaders({"Authorization": 'Bearer test1'})
       //.setBaseUrl("http://192.168.43.192:48080/admin-api")
       .setBaseUrl("http://192.168.71.40:48080/admin-api")
       // 代理/https
@@ -28,6 +29,7 @@ NetInit() {
       //   baseUrl: "https://www.xxx.com/",
       // )).interceptor)
       // dio_cache_interceptor
+      .addInterceptor(AuthInterceptor())
       .addInterceptor(DioCacheInterceptor(
           options: CacheOptions(
             store: MemCacheStore(),

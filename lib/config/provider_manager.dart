@@ -1,3 +1,4 @@
+import 'package:new_idea/view_model/app_theme_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -22,6 +23,7 @@ List<SingleChildWidget> independentServices = [
     create: (context) => HomeModel(),
   ),*/
   Provider<HomeViewModel>(create: (_) => HomeViewModel()),
+  ChangeNotifierProvider(create: (_) => AppThemeViewModel()),
 //  ChangeNotifierProvider<LocaleModel>(
 //    create: (context) => LocaleModel(),
 //  ),

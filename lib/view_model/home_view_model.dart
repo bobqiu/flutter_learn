@@ -45,7 +45,7 @@ class HomeViewModel  extends BaseRefreshViewModel<BizRepository> {
    notifyListeners();
  }*/
   Future<dynamic> getList() async{
-    Result<BizEntity>  appResponse = await BaseRepository.instance.get("biz/list?tm="+DateTime.now().microsecondsSinceEpoch.toString(), decodeType: BizEntity());
+    Result<BizEntity>  appResponse = await BaseRepository.instance.get("/trade/biz/list?tm="+DateTime.now().microsecondsSinceEpoch.toString(), decodeType: BizEntity());
     print("appResponse2,$appResponse");
     appResponse?.when(success: (model) {
     print("带泛型model2,$model");

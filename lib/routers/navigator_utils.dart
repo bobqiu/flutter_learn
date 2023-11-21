@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:new_idea/routers/routes.dart';
 
 import '../page/index_page.dart';
-import '../page/login.dart';
+import '../page/login_page.dart';
 import 'application.dart';
 
 /**
  * 这个里面主要是进行路由跳转方法的公共书写
  */
 
-class NavigatorUtil {
+class NavigatorUtils {
   // 返回
   static void goBack(BuildContext context) {
     /// 其实这边调用的是 Navigator.pop(context);
@@ -28,8 +28,16 @@ class NavigatorUtil {
   }
 
   // 跳转到主页面
-  static void goIndexPage(BuildContext context) {
-    Application.router.navigateTo(context, Routes.indexPage, replace: true);
+  static void goIndexPage(context,{String type=IndexPage.TAB_HOME,clearStack=false,replace=false}) {
+  //  Application.router.navigateTo(context, Routes.indexPage, replace: true);
+
+    Application.router?.navigateTo(
+      context,
+      Routes.indexPage + "/$type",
+      clearStack: clearStack,
+      replace: replace,
+      transition: TransitionType.cupertino,
+    );
   }
 
   /// 跳转到 转场动画 页面 ， 这边只展示 inFromLeft ，剩下的自己去尝试下，
@@ -51,7 +59,7 @@ class NavigatorUtil {
   static Future jumpRemove(BuildContext context) {
     return Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => IndexPage(),
+          builder: (context) => IndexPage(""),
         ),
             (route) => route == null);
   }
@@ -92,7 +100,7 @@ class NavigatorUtil {
   static void goToHomeRemovePage(BuildContext context) {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => IndexPage(),
+          builder: (context) => IndexPage(""),
         ),
             (route) => route == null);
   }
@@ -101,7 +109,7 @@ class NavigatorUtil {
   static void goToLoginRemovePage(BuildContext context) {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => Login(),
+          builder: (context) => LoginPage(),
         ),
             (route) => route == null);
   }

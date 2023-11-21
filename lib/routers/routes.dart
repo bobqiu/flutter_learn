@@ -11,10 +11,14 @@ class Routes {
   static String testProviderRefreshPage='/testProviderRefreshPage';
   static String orderPage='/orderPage';
   static String orderListPage='/orderListPage';
+  static String splashPage="/splashPage";
+  static String homePage="/homePage";
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(handlerFunc: (context, params) {
-      print('ERROR====>ROUTE WAS NOT FONUND!!!'); // 找不到路由，跳转404页面
+      router.printTree();
+      print(router.toString());
+      print('ERROR====>ROUTE WAS NOT FONUND!!!,$router'); // 找不到路由，跳转404页面
       print('找不到路由，404');
     });
     /*router.notFoundHandler = new Handler(
@@ -25,13 +29,17 @@ class Routes {
     );*/
 
     // 路由页面配置
-    router.define(indexPage, handler: indexPageHanderl);
-    router.define(normalPage, handler: normalPageHanderl);
-    router.define(routingReference, handler: routingReferenceHanderl);
-    router.define(login, handler: loginHanderl);
-    router.define(refreshPage, handler: refreshPageHanderl);
-    router.define(testProviderRefreshPage, handler: testProviderRefreshPageHanderl);
-    router.define(orderPage, handler: orderPageHanderl);
-    router.define(orderListPage, handler: orderListPageHanderl);
+    router.define(splashPage, handler: splashPageHandler);
+    router.define(login, handler: loginHandler);
+    router.define(indexPage+"/:type", handler: indexPageHandler);
+    router.define(normalPage, handler: normalPageHandler);
+    router.define(routingReference, handler: routingReferenceHandler);
+
+    router.define(refreshPage, handler: refreshPageHandler);
+    router.define(testProviderRefreshPage, handler: testProviderRefreshPageHandler);
+    router.define(orderPage, handler: orderPageHandler);
+    router.define(orderListPage, handler: orderListPageHandler);
+
+    router.define(homePage, handler: homePageHandler);
   }
 }
