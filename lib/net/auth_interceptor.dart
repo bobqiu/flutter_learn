@@ -7,19 +7,16 @@ import 'package:dio/dio.dart'
         RequestOptions,
         Response,
         ResponseInterceptorHandler;
-import 'package:new_idea/main.dart';
-import 'package:new_idea/page/login_page.dart';
-import 'package:new_idea/routers/navigator_utils.dart';
-import 'package:new_idea/routers/routes.dart';
 import 'package:new_idea/utils/event_bus_utils.dart';
-import 'package:new_idea/utils/global_context.dart';
 import 'package:new_idea/utils/sp_utils.dart';
 
 class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    var autherization = SpUtils.getString("Authorization");
-   // var autherization="test";
+    options.headers["Authorization"]="Bearer test1";
+    //options.headers={};
+   // var autherization = SpUtils.getString("Authorization");
+    var autherization="test1";
     print("autherization:$autherization");
     print("autherization?.isEmpty;==null:${autherization?.isEmpty}");
     print("autherization=="":${autherization==""}");
@@ -31,7 +28,6 @@ class AuthInterceptor extends InterceptorsWrapper {
           ?.pushNamedAndRemoveUntil('/login', (route) => false);*/
    //   NavigatorUtils.jump(GlobalContext.context,Routes.login);
     }
-     options.headers["Authorization"]="";
     handler.next(options);
 
   }
@@ -40,6 +36,11 @@ class AuthInterceptor extends InterceptorsWrapper {
   void onError(DioException err, ErrorInterceptorHandler handler) {
     print("err:::,$err, $handler");
     super.onError(err, handler);
+    int? statusCode = err.response?.statusCode;
+    if (statusCode == 401) {
+      // 触发登出事件
+      eventBus.emit(UnAuthenticate("unauth"));
+    }
   }
 
   @override

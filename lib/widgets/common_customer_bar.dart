@@ -116,8 +116,10 @@ class AppBarContent extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.all(5),
                         child: Icon(
-                          IconData(0xe600, fontFamily: "appIconFonts"),
-                          color: iconColor,
+                         /* IconData(0xe600, fontFamily: "appIconFonts"),
+                          color: iconColor,*/
+                          Icons.history,
+                          color: iconColor
                         ),
                       ),
                     ),

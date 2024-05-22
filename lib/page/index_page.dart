@@ -19,6 +19,7 @@ class IndexPage extends StatefulWidget {
   static const String TAB_TELEPLAY = "连续剧";
   static const String CLASSES = "classes";
 
+
   IndexPage(this.currentTabName);
 
   String currentTabName;
@@ -31,7 +32,10 @@ class _IndexPageState extends State<IndexPage> {
   final bottomBarItems = [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: IndexPage.TAB_HOME),
     BottomNavigationBarItem(
-        icon: Icon(IconData(0xe80b, fontFamily: "appIconFonts")),
+        icon: Icon(
+          /*IconData(0xe80b, fontFamily: "appIconFonts")*/
+          Icons.history,
+          color: Colors.amber),
         label: IndexPage.TAB_ME),
   ];
 

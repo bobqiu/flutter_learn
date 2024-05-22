@@ -33,6 +33,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   event_bus: ^2.0.0
+  draggable_home: ^1.0.5
+  extended_nested_scroll_view: ^6.1.2
+  url_launcher: ^6.1.12
+  flustars: ^2.0.1
+
+  path_provider: ^2.1.1
+
+  permission_handler: ^10.4.5
+  equatable: ^2.0.3
+
+  image_gallery_saver_v3: ^1.0.0
+  cached_network_image: ^3.3.0
 
 
 dev_dependencies:
@@ -59,12 +71,14 @@ dev_dependencies:
   provider: ^6.0.5
   pretty_dio_logger: ^1.3.1
   freezed_annotation: ^2.4.1
-  easy_refresh: ^3.3.2+1
+  easy_refresh: ^3.4.0
   date_format: ^2.0.7
   carousel_slider: ^4.2.1
   shared_preferences: ^2.2.1
 
   fluttertoast: ^8.2.4
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -86,7 +100,11 @@ flutter:
       fonts:
         - asset: assets/fonts/iconfont.ttf
   assets:
+    - assets/
+    - assets/image/
     - assets/images/
+    - assets/image/cryptocurrency/
+    - assets/rive/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

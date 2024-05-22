@@ -13,6 +13,13 @@ class Routes {
   static String orderListPage='/orderListPage';
   static String splashPage="/splashPage";
   static String homePage="/homePage";
+  static String draggerTile="/draggerTile";
+  static String userProfilePage="/userProfilePage";
+  static String appBarPage="/appBarPage";
+  static String extSliverPage="/extSliverPage";
+  static String whatsAppPage="/whatsAppPage";
+  static String statusSaverPage="/statusSaverPage";
+  static String permHandlerPage="/permHandlerPage";
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(handlerFunc: (context, params) {
@@ -39,7 +46,18 @@ class Routes {
     router.define(testProviderRefreshPage, handler: testProviderRefreshPageHandler);
     router.define(orderPage, handler: orderPageHandler);
     router.define(orderListPage, handler: orderListPageHandler);
+    router.define(draggerTile, handler: draggerTileHandler);
 
+    router.define(userProfilePage, handler: userProfilehandler);
     router.define(homePage, handler: homePageHandler);
+
+    router.define(appBarPage, handler: appBarPageHandler);
+    router.define(extSliverPage, handler: extSliverPageHandler);
+
+    router.define(whatsAppPage, handler: whatsAppPageHandler);
+    router.define(statusSaverPage, handler: statusSaverPageHandler);
+
+    router.define(permHandlerPage, handler: permHandlerPageHandler);
+
   }
 }

@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                                 MaterialButton(
                                   onPressed: () =>
                                   {NavigatorUtils.jumpLeft(context, '/testProviderRefreshPage')},
-                                  child: Text('provider+原refresh集成'),
+                                  child: Text('provider+原refresh'),
                                 ),
                               ],
                             ),
@@ -170,8 +170,8 @@ class _HomePageState extends State<HomePage> {
                   ),*/
                           MaterialButton(
                             onPressed: () =>
-                            {NavigatorUtils.jumpLeft(context, '/refreshPage')},
-                            child: Text('provider+封装refresh集成'),
+                            {NavigatorUtils.jumpLeft(context, '/draggerTile')},
+                            child: Text('draggerhome'),
                           ),
                         ],
                       ),
@@ -189,9 +189,77 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                           MaterialButton(
                             onPressed: () =>
-                            //{NavigatorUtils.jump(context, '/indexPage')},
-                            {NavigatorUtils.goIndexPage(context)},
-                            child: Text('routerRight'),
+                            {NavigatorUtils.jump(context, '/userProfilePage')},
+                            //{NavigatorUtils.goIndexPage(context)},
+                            child: Text('个人中心'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/userProfilePage')},
+                            child: Text('userprofile'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/appBarPage')},
+                            child: Text('appbarpage'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.amberAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/extSliverPage')},
+                            child: Text('extSliverPage'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/whatsAppPage')},
+                            child: Text('whatsAppPage'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/statusSaverPage')},
+                            child: Text('statusSaverPage'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.greenAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jump(context, '/permHandlerPage')},
+                            child: Text('权限申请'),
                           ),
                           MaterialButton(
                             onPressed: () =>
@@ -217,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      color: Colors.amberAccent,
+                      color: Colors.yellowAccent,
                       height: 48,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -251,7 +319,41 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      color: Colors.greenAccent,
+                      color: Colors.lightBlueAccent,
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jump(context, '/indexPage')},
+                            child: Text('routerRight'),
+                          ),
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/normalPage')},
+                            child: Text('routerLeft'),
+                          ),
+                          /*MaterialButton(
+                    onPressed: () =>
+                    {NavigatorUtil.jumpLeft(context, '/testProviderRefreshPage')},
+                    child: Text('provider+refresh集成'),
+                  ),*/
+                          MaterialButton(
+                            onPressed: () =>
+                            {NavigatorUtils.jumpLeft(context, '/refreshPage')},
+                            child: Text('provider+封装refresh集成'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
+          Container(
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.purpleAccent,
                       height: 48,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

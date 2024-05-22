@@ -1,8 +1,16 @@
+
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:new_idea/page/appbar/app_bar_page.dart';
+import 'package:new_idea/page/dragger/dragger_tile.dart';
+import 'package:new_idea/page/extsliver/ext_sliver_page.dart';
 import 'package:new_idea/page/home_page.dart';
+import 'package:new_idea/page/my/user_profile_page.dart';
+import 'package:new_idea/page/permissionhandler/perm_handler_page.dart';
 import 'package:new_idea/page/splash_page.dart';
 
+import '../page/contextual/status_saver_page.dart';
+import '../page/contextual/whats_app_page.dart';
 import '../page/index_page.dart';
 import '../page/login_page.dart';
 import '../page/normal_page.dart';
@@ -11,6 +19,8 @@ import '../page/order_page.dart';
 import '../page/refresh_page.dart';
 import '../page/routing_reference.dart';
 import '../page/test_provider_refresh_page.dart';
+
+
 
 /**
  * handler就是每个路由的规则，编写handler就是配置路由规则，比如我们要传递参数，参数的值是什么，这些都需要在Handler中完成。
@@ -63,4 +73,31 @@ Handler orderPageHandler = Handler(
 Handler orderListPageHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> parameters) {
   return OrderListPage();
+});
+
+Handler draggerTileHandler=Handler(handlerFunc: (context,params){
+  return DraggerTile();
+});
+
+Handler userProfilehandler=Handler(handlerFunc: (context,params){
+  return UserProfilePage();
+});
+
+Handler appBarPageHandler=Handler(handlerFunc: (context,params){
+  return AppBarPage();
+});
+
+Handler extSliverPageHandler=Handler(handlerFunc: (context,params){
+  return  ExtSliverPage();
+});
+
+Handler statusSaverPageHandler=Handler(handlerFunc: (context,params){
+  return StatusSaverPage();
+});
+
+Handler whatsAppPageHandler=Handler(handlerFunc: (context,params){
+  return WhatsAppPage();
+});
+Handler permHandlerPageHandler=Handler(handlerFunc: (context,params){
+  return PermHandlerPage();
 });

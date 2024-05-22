@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_idea/res/app_color.dart';
 
 /// Skeleton list item.
 class SkeletonItem extends StatelessWidget {
@@ -13,8 +14,10 @@ class SkeletonItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    final backgroundColor = themeData.colorScheme.surfaceVariant;
-    final foregroundColor = themeData.colorScheme.surface;
+    /*final backgroundColor = themeData.colorScheme.surfaceVariant;
+    final foregroundColor = themeData.colorScheme.surface;*/
+    final backgroundColor = AppColor.lightGrey;
+    final foregroundColor = AppColor.grey;
     if (direction == Axis.vertical) {
       return Card(
         elevation: 0,

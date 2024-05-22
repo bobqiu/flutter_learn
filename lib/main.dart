@@ -1,12 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:new_idea/config/net_init.dart';
-import 'package:new_idea/page/login_page.dart';
 import 'package:new_idea/page/splash_page.dart';
 import 'package:new_idea/res/app_color.dart';
 import 'package:new_idea/routers/application.dart';
 import 'package:new_idea/routers/routes.dart';
-import 'package:new_idea/utils/event_bus_utils.dart';
 import 'package:new_idea/utils/global_context.dart';
 import 'package:new_idea/utils/sp_utils.dart';
 import 'package:new_idea/utils/system/dd_system_chrome.dart';
@@ -23,9 +21,13 @@ void main() {
   // widget和flutter初始化
   WidgetsFlutterBinding.ensureInitialized();
   NetInit();
+  //PermissionUtils.initPermissions();
+ // PermissionUtils.storagePerm();
   SpUtils.getInstance();
-  EventBusUtils.instance;
+  //EventBusUtils.instance;
   runApp(MyApp());
+
+
 }
 
 class MyApp extends StatefulWidget {
@@ -48,14 +50,14 @@ class _MyAppState extends State<MyApp> {
       child: Builder(
         builder: (context) => MaterialApp(
           title: "新思考新思维",
-          color: AppColor.black,
+          color: AppColor.white,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch().copyWith(
               secondary: Colors.red, // Your accent color
             ),
             scaffoldBackgroundColor: AppColor.white,
             appBarTheme: AppBarTheme(
-              color: AppColor.black,
+              color: AppColor.white,
             ),
             iconTheme: IconThemeData(
               color: context.watch<AppThemeViewModel>().iconThemeColor,
@@ -73,3 +75,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+

@@ -145,8 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                   backgroundColor: Colors.lightBlue, // background
                 ),
               onPressed: () {
-                _showInfoDialog(
-                    ' 账号：${_accountController.text} \n 密码：${_pwdController.text}');
+                login(_accountController.text,_pwdController.text);
               },
               child: Text(
                 '登陆',
@@ -207,5 +206,8 @@ class _LoginPageState extends State<LoginPage> {
         );
       },
     );
+  }
+  void login(String userName,String password) {
+
   }
 }

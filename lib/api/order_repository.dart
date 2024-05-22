@@ -6,10 +6,11 @@ import '../net/base_repository.dart';
 class OrderRepository extends BaseRepository {
   BizRepository() {}
 
-  Future<OrderEntity> getOrderListPage(String? pageNo,String? pageSize) async {
+  Future<OrderEntity> getOrderListPage(String? pageNo, String? pageSize) async {
     OrderEntity orderEntity = OrderEntity();
-    Result<OrderEntity> response =
-        await get("/trade/order/page?pageNo=$pageNo&pageSize=$pageSize", decodeType: OrderEntity());
+    Result<OrderEntity> response = await get(
+        "/trade/order/page?pageNo=$pageNo&pageSize=$pageSize",
+        decodeType: OrderEntity());
     response.when(success: (entity) {
       orderEntity = entity;
       var size = entity.data?.list!.length;
