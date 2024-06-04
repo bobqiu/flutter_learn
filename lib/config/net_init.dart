@@ -9,7 +9,7 @@ import '../net/net_options.dart';
 NetInit() {
   NetOptions.instance
       // header
-      .addHeaders({"Authorization": 'Bearer test1'})
+      .addHeaders({"Authorization": 'Bearer 1c448392d3b1475d82ba70550d3113e7'})
       //.setBaseUrl("http://192.168.43.192:48080/admin-api")
      // .setBaseUrl("http://192.168.71.40:48080/admin-api")
       .setBaseUrl("http://172.16.139.128:48080/admin-api")

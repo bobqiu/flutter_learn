@@ -25,3 +25,4 @@ class AppColor{
   static const Color search_bg_grey = Color(0x44cccccc);
   static const Color line_grey = Color(0xFFF5F5F5);
 }
+

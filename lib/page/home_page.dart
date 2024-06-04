@@ -52,15 +52,50 @@ class _HomePageState extends State<HomePage> {
                             height: 48,
                             child: Row(
                               children: <Widget>[
-                                Flexible(child: Text('Child1', style: style)),
-                                Flexible(child: Text('Model data: ', style: style)),
+                                MaterialButton(onPressed: ()=>{
+                                  NavigatorUtils.jump(context, '/cardPage')
+                                },child: Text("纸牌"),),
                                 MaterialButton(
-                                  onPressed: () => TestModel.setTitle("2"),
-                                  child: Text('add'),
+                                  onPressed: () => {NavigatorUtils.jump(context, '/overviewPage')},
+                                  child: Text('美团'),
                                 ),
                                 MaterialButton(
-                                  onPressed: () => TestModel.removeTitle(),
-                                  child: Text('remove'),
+                                  onPressed: () => {NavigatorUtils.jump(context, '/formPage')},
+                                  child: Text('点位'),
+                                ),
+                                Container(
+                                    color: Colors.deepOrangeAccent,
+                                    child: Center(
+                                      child: Text('${TestModel.title}', style: style),
+                                    )),
+                              ],
+                            ),
+                          ),
+                        )));
+              }),
+          ProviderWidget<TestModel>(
+              viewModel: TestModel(title: "3"),
+              builder: (context, TestModel, child) {
+                print("TestMode1重新build");
+                return Container(
+                    child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            color: Colors.redAccent,
+                            height: 48,
+                            child: Row(
+                              children: <Widget>[
+                                MaterialButton(onPressed: ()=>{
+                                  NavigatorUtils.jump(context, '/tarotCardFan')
+                                },child: Text("taroCardFan"),),
+                                MaterialButton(
+                                  onPressed: () => {NavigatorUtils.jump(context, '/hanziPage')},
+                                  child: Text('汉字'),
+                                ),
+                                MaterialButton(
+                                  onPressed: () => {NavigatorUtils.jump(context, '/formPage')},
+                                  child: Text('表单'),
                                 ),
                                 Container(
                                     color: Colors.deepOrangeAccent,
@@ -86,22 +121,22 @@ class _HomePageState extends State<HomePage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
-                                Text('Child2', style: style),
-                                Flexible(
-                                    child: Text('Model data: ${TestModel.title}',
-                                        style: style)),
                                 MaterialButton(
-                                  onPressed: () => TestModel.setTitle("2"),
-                                  child: Text('add'),
+                                  onPressed: () => {NavigatorUtils.jump(context, '/cdPage')},
+                                  child: Text('cdPage'),
                                 ),
                                 MaterialButton(
-                                  onPressed: () => TestModel.removeTitle(),
-                                  child: Text('remove'),
+                                  onPressed: () => {NavigatorUtils.jump(context, '/droppablePage')},
+                                  child: Text('droppablepage'),
                                 ),
+                                /*MaterialButton(
+                                  onPressed: () => {NavigatorUtils.jump(context, '/palyCardPage')},
+                                  child: Text('palycardPage'),
+                                ),*/
                                 MaterialButton(
                                   onPressed: () =>
-                                  {NavigatorUtils.jumpLeft(context, '/testProviderRefreshPage')},
-                                  child: Text('provider+原refresh'),
+                                  {NavigatorUtils.jumpLeft(context, '/taluoCardPage')},
+                                  child: Text('塔罗'),
                                 ),
                               ],
                             ),

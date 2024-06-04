@@ -1,4 +1,6 @@
 import 'package:fluro/fluro.dart';
+import 'package:new_idea/page/card/droppable_page.dart';
+import 'package:new_idea/page/card/tarotCardFan.dart';
 import 'package:new_idea/routers/router_handler.dart';
 
 class Routes {
@@ -20,6 +22,15 @@ class Routes {
   static String whatsAppPage="/whatsAppPage";
   static String statusSaverPage="/statusSaverPage";
   static String permHandlerPage="/permHandlerPage";
+  static String cardPage="/cardPage";
+  static String hanziPage="/hanziPage";
+  static String formPage="/formPage";
+  static String cdPage="/cdPage";
+  static String playCardPage="/playCardPage";
+  static String droppablePage="/droppablePage";
+  static String taluoCardPage="/taluoCardPage";
+  static String tarotCardFan="/tarotCardFan";
+  static String overviewPage="/overviewPage";
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(handlerFunc: (context, params) {
@@ -58,6 +69,20 @@ class Routes {
     router.define(statusSaverPage, handler: statusSaverPageHandler);
 
     router.define(permHandlerPage, handler: permHandlerPageHandler);
+
+    router.define(hanziPage, handler: hanziPageHandler);
+    router.define(cardPage, handler: cardPageHandler);
+
+    router.define(formPage, handler: formPageHandler);
+
+
+    router.define(cdPage, handler: cdPageHandler);
+    router.define(playCardPage, handler: playCardPageHandler);
+    router.define(droppablePage, handler: droppablePageHandler);
+
+    router.define(taluoCardPage, handler: taluoCardPageHandler);
+    router.define(tarotCardFan, handler: tarotCardFanHandler);
+    router.define(overviewPage, handler: overviewPageHandler);
 
   }
 }

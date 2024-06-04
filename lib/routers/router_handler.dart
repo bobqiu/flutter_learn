@@ -2,15 +2,24 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:new_idea/page/appbar/app_bar_page.dart';
+import 'package:new_idea/page/card/droppable_page.dart';
+import 'package:new_idea/page/card/taluo_card_page.dart';
 import 'package:new_idea/page/dragger/dragger_tile.dart';
 import 'package:new_idea/page/extsliver/ext_sliver_page.dart';
 import 'package:new_idea/page/home_page.dart';
+import 'package:new_idea/page/meituan/overview_page.dart';
 import 'package:new_idea/page/my/user_profile_page.dart';
 import 'package:new_idea/page/permissionhandler/perm_handler_page.dart';
 import 'package:new_idea/page/splash_page.dart';
 
+import '../page/card/cd_page.dart';
+import '../page/card/play_card_page.dart';
+import '../page/card/tarotCardFan.dart';
 import '../page/contextual/status_saver_page.dart';
 import '../page/contextual/whats_app_page.dart';
+import '../page/exam/card_page.dart';
+import '../page/exam/hanzi_page.dart';
+import '../page/form/form_page.dart';
 import '../page/index_page.dart';
 import '../page/login_page.dart';
 import '../page/normal_page.dart';
@@ -19,6 +28,7 @@ import '../page/order_page.dart';
 import '../page/refresh_page.dart';
 import '../page/routing_reference.dart';
 import '../page/test_provider_refresh_page.dart';
+
 
 
 
@@ -100,4 +110,31 @@ Handler whatsAppPageHandler=Handler(handlerFunc: (context,params){
 });
 Handler permHandlerPageHandler=Handler(handlerFunc: (context,params){
   return PermHandlerPage();
+});
+Handler hanziPageHandler=Handler(handlerFunc: (context,params){
+  return HanziPage();
+});
+Handler cardPageHandler=Handler(handlerFunc: (context,params){
+  return CardPage();
+});
+Handler formPageHandler=Handler(handlerFunc: (context,params){
+  return FormPage();
+});
+Handler cdPageHandler=Handler(handlerFunc: (context,params){
+  return CdPage(cards: [],);
+});
+Handler playCardPageHandler=Handler(handlerFunc: (context,params){
+  return PlayCardPage(title: 'palyCard',);
+});
+Handler droppablePageHandler=Handler(handlerFunc: (context,params){
+  return DroppablePage();
+});
+Handler taluoCardPageHandler=Handler(handlerFunc: (context,params){
+  return TaluoCardPage();
+});
+Handler tarotCardFanHandler=Handler(handlerFunc: (context,params){
+  return TarotCardFan();
+});
+Handler overviewPageHandler=Handler(handlerFunc: (context,params){
+  return OverviewPage();
 });

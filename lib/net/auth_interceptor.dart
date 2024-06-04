@@ -13,10 +13,10 @@ import 'package:new_idea/utils/sp_utils.dart';
 class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers["Authorization"]="Bearer test1";
+    options.headers["Authorization"]="Bearer 1c448392d3b1475d82ba70550d3113e7";
     //options.headers={};
    // var autherization = SpUtils.getString("Authorization");
-    var autherization="test1";
+    var autherization="1c448392d3b1475d82ba70550d3113e7";
     print("autherization:$autherization");
     print("autherization?.isEmpty;==null:${autherization?.isEmpty}");
     print("autherization=="":${autherization==""}");
@@ -46,6 +46,11 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onResponse(
       Response<dynamic> response, ResponseInterceptorHandler handler) {
+    int? statusCode = response?.data['code'];
+    if (statusCode == 401) {
+      // 触发登出事件
+      eventBus.emit(UnAuthenticate("unauth"));
+    }
       super.onResponse(response, handler);
 
   }

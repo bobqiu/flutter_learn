@@ -77,9 +77,16 @@ dev_dependencies:
   shared_preferences: ^2.2.1
 
   fluttertoast: ^8.2.4
+  playing_cards: ^0.4.1+11
+  stroke_order_animator: ^3.0.0
+  file_picker: ^8.0.3
 
+  reactive_forms: ^17.0.1
+  flutter_form_builder: ^9.3.0
+  easy_opener:
+  form_builder_validators:
 
-
+  playing_cards_layouts: ^1.0.1
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -102,9 +109,13 @@ flutter:
   assets:
     - assets/
     - assets/image/
+    - assets/cards/
     - assets/images/
+    - assets/images/title/
+    - assets/images/meituan/
     - assets/image/cryptocurrency/
     - assets/rive/
+    - assets/tarot_card.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
