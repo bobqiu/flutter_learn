@@ -1,0 +1,11 @@
+distributionUrl=https\://downloads.gradle-dn.com/distributions/gradle-5.1.1-all.zip
+
+
+/Users/qiubo/Library/Android/sdk/platform-tools
+
+./adb shell ls /storage/emulated/0/WhatsApp/Media/.Statuses
+
+./adb shell mkdir -p /storage/emulated/0/WhatsApp/Media/.Statuses
+
+ flutter build apk --split-per-abi
+
